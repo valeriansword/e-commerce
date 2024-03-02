@@ -2,7 +2,7 @@ import React from "react";
 
 function Home(props){
     return(
-        <div className="row d-flex justify-content-evenly h-25">
+        <div className="row d-flex justify-content-evenly ">
              { props.product.map((item)=>(
             
             <div key={item.id} className="card w-25 m-2 rounded-0  col-lg-3" >
