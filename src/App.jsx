@@ -47,7 +47,18 @@ function App(){
       setCart([...cart,item]);
       
  }
-  
+  const handleChange=(item,d,amount)=>{
+    let ind=-1;
+    cart.forEach((data,index)=>{
+      if(data.id===item.id)
+        ind=index;
+    });
+    const tempArr=cart;
+    tempArr[ind].amount+=d;
+    if(tempArr[ind].amount===0)
+        tempArr[ind].amount=1;
+    setCart([...tempArr])
+  }
   return(
     
       <BrowserRouter>
@@ -62,7 +73,7 @@ function App(){
       }
       <Routes>
         <Route path="/e-commerce/" element={<Home product={product} handleClick={handleClick} />}></Route>
-        <Route path="/e-commerce/checkout" element={<Checkout cart={cart} size={cart.length} />}></Route>
+        <Route path="/e-commerce/checkout" element={<Checkout cart={cart} setCart={setCart} handleChange={handleChange} />}></Route>
         
       </Routes>
       <Footer />
