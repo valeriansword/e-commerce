@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 function Checkout({cart,setCart,handleChange}){
 
-    let [pieces,setPieces]=useState(1);
     
+    
+
     const [totalAmount,setTotalAmount]=useState(0);
     
  
@@ -10,7 +11,7 @@ function Checkout({cart,setCart,handleChange}){
     const handleAmount=()=>{
         let ans=0;
         cart.map((item)=>(
-            ans+=item.price*pieces
+            ans+=item.price*item.rating
         ))
         setTotalAmount(ans)
     }
@@ -31,15 +32,13 @@ function Checkout({cart,setCart,handleChange}){
                       <div className="d-flex justify-content-center">
                         <button id="increament" href="#" className="btn btn-light " 
                         onClick={()=>{
-                            setPieces(pieces+=1)
-                            
-                            handleChange(item,+1,pieces)
+                            handleChange(item,+1)
                             }}>+</button>
-                        <span >{pieces}</span>
+                        <span >{item.rating}</span>
                         <button href="#" className="btn btn-light"
                          onClick={()=>{
-                            setPieces(pieces-=1)
-                            handleSubtract(item,-1,pieces)}}>-</button>
+                            
+                            handleSubtract(item,-1)}}>-</button>
                         </div>
                      <button href="#" className="btn btn-warning">Remove</button>
                  </div>

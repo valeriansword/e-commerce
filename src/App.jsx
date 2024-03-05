@@ -16,18 +16,34 @@ function App(){
   const[warning,setWarning]=useState(false);
 
 
-
   useEffect(()=>{
-    setLoading(true);
-    axios.get("https://dummyjson.com/products").
+    Promise.all([
+      axios.put("https://dummyjson.com/products/1",{
+        rating:1
+      }),
+      axios.put("https://dummyjson.com/products/2",{
+        rating:2
+      })
+    ])
+   .
     then((res)=>{
-    //  console.log(res);
-      setProduct(res.data.products);
-      console.log(res.data.products);
-      setLoading(false);
-      
-    }).catch(err=>{console.log(err)})
+      setProduct(res)
+        
+    }).catch(err=>console.log(err))
   },[])
+
+  // useEffect(()=>{
+  //   setLoading(true);
+  //   axios.get("https://dummyjson.com/products").
+  //   then((res)=>{
+  //   //  console.log(res);
+  //     setProduct(res.data.products);
+  //     console.log(res.data.products);
+  //     setLoading(false);
+      
+  //   }).catch(err=>{console.log(err)})
+  // },[])
+  
 
   const handleClick= (item)=>{
     let isPresent=false;
