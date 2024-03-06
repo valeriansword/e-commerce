@@ -22,13 +22,53 @@ function App(){
         rating:1
       }),
       axios.put("https://dummyjson.com/products/2",{
-        rating:2
+        rating:1
+      }),
+      axios.put("https://dummyjson.com/products/3",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/4",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/5",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/6",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/7",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/8",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/9",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/10",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/11",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/12",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/13",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/14",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/15",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/16",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/17",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/18",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/19",{
+        rating:1
+      }),axios.put("https://dummyjson.com/products/20",{
+        rating:1
+      }),
+      axios.put("https://dummyjson.com/products/21",{
+        rating:1
       })
     ])
    .
     then((res)=>{
       setProduct(res)
-        
+        console.log(product)
     }).catch(err=>console.log(err))
   },[])
 
@@ -48,7 +88,7 @@ function App(){
   const handleClick= (item)=>{
     let isPresent=false;
     cart.forEach((product)=>{
-      if (product.id===item.id)
+      if (product.data.id===item.data.id)
         isPresent=true;
       });
       if(isPresent){
@@ -63,16 +103,16 @@ function App(){
       setCart([...cart,item]);
       
  }
-  const handleChange=(item,d,amount)=>{
+  const handleChange=(item,d)=>{
     let ind=-1;
     cart.forEach((data,index)=>{
-      if(data.id===item.id)
+      if(data.data.id===item.id)
         ind=index;
     });
     const tempArr=cart;
-    tempArr[ind].amount+=d;
-    if(tempArr[ind].amount===0)
-        tempArr[ind].amount=1;
+    tempArr[ind].data.rating+=d;
+    if(tempArr[ind].data.rating===0)
+        tempArr[ind].data,rating=1;
     setCart([...tempArr])
   }
   return(
