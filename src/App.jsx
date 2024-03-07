@@ -7,6 +7,8 @@ import axios from "axios";
 import Footer from "./Footer";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Checkout from "./Checkout";
+import LoginPage from "./LoginPage";
+import SearchedProduct from "./SearchedProduct";
 function App(){
 
 
@@ -130,6 +132,8 @@ function App(){
       <Routes>
         <Route path="/e-commerce/" element={<Home product={product} handleClick={handleClick} />}></Route>
         <Route path="/e-commerce/checkout" element={<Checkout cart={cart} setCart={setCart} handleChange={handleChange} />}></Route>
+        <Route path="/e-commerce/login" element={<LoginPage />}></Route>
+        <Route path="/e-commerce/SearchedProduct" element={<SearchedProduct />}></Route>
         
       </Routes>
       <Footer />

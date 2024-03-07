@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 function Home(props){
     return(
-        <div className="row d-flex justify-content-center">
+        <div className="min-vh-100 row d-flex justify-content-center">
              { props.product.map((item)=>(
             
             <div key={item.data.id} className="card w-25 m-2 rounded-0  col-lg-3" >

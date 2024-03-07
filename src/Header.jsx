@@ -10,17 +10,22 @@ function Header(props) {
         
       </Link>
       <div className="input-group w-75 ">
-       <input type="text" className="form-control " placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-         <span className="input-group-text bg-warning" id="basic-addon2"><i className="bi  bi-search"></i></span>
+       <input type="text" className="form-control " placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+       
+         <span className="input-group-text bg-warning" id="basic-addon2"><Link to="/e-commerce/SearchedProduct"><i className="bi  bi-search"></i> </Link></span>
+        
       </div>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav  mb-2 ">
+        <ul className="navbar-nav me-auto ms-2 mb-2 mt-lg-0">
           <li className="nav-item">
             <a className="nav-link active " aria-current="page" href="#">
-              <small >hello</small> <strong >Guest</strong>
+             <Link to="/e-commerce/login" className="text-decoration-none text-white d-flex flex-column" > 
+             <small >hello,Guest</small> 
+            <strong >Sign-in</strong> 
+            </Link>
             </a>
           </li>
           <li className="nav-item ">
