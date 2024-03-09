@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-function SearchedProduct(){
+import { useParams } from "react-router-dom";
+function SearchedProduct(props){
         const [searchedItem,setSearchedItem]=useState([])
+        const {searchValue}=useParams();
 
         useEffect(()=>{
-            axios.get("https://dummyjson.com/products/search",{
-                params:{
-                    q:"phone"
-                }
-            }).then((res)=>
+            axios.get("https://dummyjson.com/products/search?q="+searchValue).then((res)=>
             {
                 setSearchedItem(res.data.products)
                 console.log(searchedItem)
@@ -17,6 +15,13 @@ function SearchedProduct(){
             catch((err)=>console.log(err))
         },[])
     
+            searchedItem.map((item)=>{
+                    if(item.rating>1){
+                        return item.rating=1
+                    }
+                })
+            
+        
    
 
     return (

@@ -69,8 +69,10 @@ function App(){
     ])
    .
     then((res)=>{
-      setProduct(res)
-        console.log(product)
+      const response=res.map((item)=>(item.data));
+      
+      setProduct(response)
+        
     }).catch(err=>console.log(err))
   },[])
 
@@ -90,7 +92,7 @@ function App(){
   const handleClick= (item)=>{
     let isPresent=false;
     cart.forEach((product)=>{
-      if (product.data.id===item.data.id)
+      if (product.id===item.id)
         isPresent=true;
       });
       if(isPresent){
@@ -108,13 +110,13 @@ function App(){
   const handleChange=(item,d)=>{
     let ind=-1;
     cart.forEach((data,index)=>{
-      if(data.data.id===item.id)
+      if(data.id===item.id)
         ind=index;
     });
     const tempArr=cart;
-    tempArr[ind].data.rating+=d;
-    if(tempArr[ind].data.rating===0)
-        tempArr[ind].data,rating=1;
+    tempArr[ind].rating+=d;
+    if(tempArr[ind].rating===0)
+        tempArr[ind],rating=1;
     setCart([...tempArr])
   }
   return(
@@ -133,7 +135,7 @@ function App(){
         <Route path="/e-commerce/" element={<Home product={product} handleClick={handleClick} />}></Route>
         <Route path="/e-commerce/checkout" element={<Checkout cart={cart} setCart={setCart} handleChange={handleChange} />}></Route>
         <Route path="/e-commerce/login" element={<LoginPage />}></Route>
-        <Route path="/e-commerce/SearchedProduct" element={<SearchedProduct />}></Route>
+        <Route path="/e-commerce/SearchedProduct/:searchValue" element={<SearchedProduct handleClick={handleClick} />}></Route>
         
       </Routes>
       <Footer />

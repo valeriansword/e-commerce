@@ -5,8 +5,8 @@ return(
          <footer className=" text-center text-lg-start">
   
   <div className="text-center p-3" style={{backgroundColor:"gray"}} >
-    © 2020 Copyright:
-    <a className="text-body " href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2024 Copyright:
+    <a className="text-body text-decoration-none" href="https://mdbootstrap.com/">shop at Shopify</a>
   </div>
   
         </footer>
