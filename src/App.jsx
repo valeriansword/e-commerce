@@ -19,6 +19,7 @@ function App(){
 
 
   useEffect(()=>{
+    setLoading(true);
     Promise.all([
       axios.put("https://dummyjson.com/products/1",{
         rating:1
@@ -72,6 +73,7 @@ function App(){
       const response=res.map((item)=>(item.data));
       
       setProduct(response)
+      setLoading(false)
         
     }).catch(err=>console.log(err))
   },[])

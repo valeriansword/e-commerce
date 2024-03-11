@@ -2,19 +2,23 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 function SearchedProduct(props){
-        const [searchedItem,setSearchedItem]=useState([])
+        const [searchedItem,setSearchedItem]=useState([]);
+        const [loading,setLoading]=useState(false);
         const {searchValue}=useParams();
 
         useEffect(()=>{
-            axios.get("https://dummyjson.com/products/search?q="+searchValue).then((res)=>
+            
+            axios.get("https://dummyjson.com/products/search?q="+searchValue)
+            .then((res)=>
             {
-                setSearchedItem(res.data.products)
-                console.log(searchedItem)
+                setSearchedItem(res.data.products);
+                console.log(searchValue);
+              
             }
             ).
             catch((err)=>console.log(err))
         },[])
-    
+        
             searchedItem.map((item)=>{
                     if(item.rating>1){
                         return item.rating=1
@@ -26,6 +30,7 @@ function SearchedProduct(props){
 
     return (
         <div className="min-vh-100 row">
+            { loading&& (<p>Loading...</p>)}
             { searchedItem.map((item)=>(
             
             <div key={item.id} className="card w-25 m-2 rounded-0  col-lg-3" >

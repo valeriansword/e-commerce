@@ -1,6 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
       
 function Header(props) {
@@ -11,13 +11,15 @@ function Header(props) {
       //   console.log(event.target.value)
       //   setSearchValue(event.target.value)
       // }
+      const navigate=useNavigate();
       const handleChange=(value)=>{
         setSearchValue(value);
       }
-      const handleClick=(event)=>{
-        if(event.key==="Enter"){
-          console.log(searchValue)
-        }
+      const handleClick=()=>{
+    
+          setSearchValue('');
+         
+        
         
       }
 
@@ -34,9 +36,11 @@ function Header(props) {
       </Link> 
       <div className="input-group w-75 ">
      
-       <input type="text" className="form-control " onKeyDown={handleClick} onChange={(e)=>handleChange(e.target.value)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+     
+         <input type="text" className="form-control " value={searchValue}  onChange={(e)=>handleChange(e.target.value)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+         
        
-         <span className="input-group-text bg-warning" id="basic-addon2"><Link to={`/e-commerce/SearchedProduct/${searchValue}`}  className="text-decoration-none"><i onClick={handleClick}  className="bi  bi-search"></i></Link></span>
+         <span className="input-group-text bg-warning" id="basic-addon2"><Link to={`/e-commerce/SearchedProduct/${searchValue}`}  className="text-decoration-none"><i  onClick={handleClick}  className="bi  bi-search"></i></Link></span>
         
       </div>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
