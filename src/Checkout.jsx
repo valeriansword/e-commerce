@@ -29,7 +29,7 @@ function Checkout({cart,setCart,handleChange}){
             <div className="row min-vh-100 mt-2">
                 <div className="col-9">
                     <h4>Your shopping cart</h4>
-                    <div className="col-lg-6">
+                    <div className="col-lg-5">
                     <CheckoutProduct cart={cart} handleRemove={handleRemove} setCart={setCart} handleChange={handleChange} />
                     </div>
                        
