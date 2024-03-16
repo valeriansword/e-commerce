@@ -45,4 +45,4 @@ function Checkout({cart,setCart,handleChange}){
         </div>
     )
 }
-export default Checkout
+export default Checkout;
