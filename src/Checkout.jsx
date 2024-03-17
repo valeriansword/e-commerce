@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import CheckoutProduct from "./CheckoutProduct";
 
+import "./css/Checkout.css"
 
 function Checkout({cart,setCart,handleChange}){
 
@@ -25,12 +25,33 @@ function Checkout({cart,setCart,handleChange}){
 
     
     return(
-        <div className="container-fluid">
-            <div className="row min-vh-100 mt-2">
+        <div className="container-fluid min-vh-100">
+            <div className="row  mt-2">
                 <div className="col-9">
                     <h4>Your shopping cart</h4>
-                    <div className="col-lg-5">
-                    <CheckoutProduct cart={cart} handleRemove={handleRemove} setCart={setCart} handleChange={handleChange} />
+                    <div className="row">
+                    {
+                cart?.map((item)=>(
+                    <div key={item.id} className="col-lg-4" id="card"   >
+                 <img src={item.thumbnail} id="image" className="card-img-top  rounded-0 " style={{height:"200px"}} alt="..." />
+                 <div className="card-body">
+                      <h5 className="card-title">{item.title}</h5>
+                       
+                      <p className="card-text" id="price">€{item.price}</p>
+                      <div className="d-flex justify-content-center">
+                      <button id="decrement"href="#" className="btn btn-light"
+                         onClick={()=>{handleChange(item,-1)}}>-</button>
+                         <span >{item.rating}</span>
+                      
+                          <button id="increment" href="#" className="btn btn-light " 
+                        onClick={()=>{handleChange(item,+1)}}>+</button>
+                      
+                        </div>
+                     <button  onClick={()=>handleRemove(item.id)} id="removeButton" >Remove</button>
+                 </div>
+            </div>
+                ))
+               }
                     </div>
                        
 
