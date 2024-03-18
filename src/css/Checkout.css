@@ -52,3 +52,9 @@
   #card button:hover {
     opacity: 0.7;
   }
+  #totalPrice{
+    height:200px
+  }
+  #price1{
+    margin-top: 0;
+  }

@@ -26,7 +26,7 @@ function Checkout({cart,setCart,handleChange}){
     
     return(
         <div className="container-fluid min-vh-100">
-            <div className="row  mt-2">
+            <div className="row ">
                 <div className="col-9">
                     <h4>Your shopping cart</h4>
                     <div className="row">
@@ -56,8 +56,10 @@ function Checkout({cart,setCart,handleChange}){
                        
 
                 </div>
-                <div className="col-3">
-                    <p className="fw-normal">Total price:</p><p><b>€{totalAmount}</b></p>
+                <div className="col-3" id="totalPrice" >
+                    <p className="fw-normal pb-0">Total price:</p><p className=""><b id="price1" className="">€{totalAmount}</b></p>
+                    <div className="d-flex" ><input type="checkbox" className="pt-0"/>
+                    <p className="mt-2 ms-2">this order contains gift</p></div>
                     <button className="btn btn-warning rounded-0">Proceed to Checkout</button>
                 </div>
 

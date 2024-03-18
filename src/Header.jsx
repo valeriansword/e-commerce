@@ -12,16 +12,14 @@ function Header(props) {
       //   setSearchValue(event.target.value)
       // }
       const navigate=useNavigate();
-      const handleChange=(value)=>{
-        setSearchValue(value);
+      const handleChange=(event)=>{
+        setSearchValue(event.target.value);
+        
       }
       const handleClick=()=>{
     
           setSearchValue('');
-         
-        
-        
-      }
+    }
 
 
 
@@ -37,7 +35,7 @@ function Header(props) {
       <div className="input-group w-75 ">
      
      
-         <input type="text" className="form-control " value={searchValue}  onChange={(e)=>handleChange(e.target.value)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+         <input type="text" className="form-control " value={searchValue}  onChange={()=>handleChange(event)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
          
        
          <span className="input-group-text bg-warning" id="basic-addon2"><Link to={`/e-commerce/SearchedProduct/${searchValue}`}  className="text-decoration-none"><i  onClick={handleClick}  className="bi  bi-search"></i></Link></span>

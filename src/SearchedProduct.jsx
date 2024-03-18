@@ -17,7 +17,7 @@ function SearchedProduct(props){
             }
             ).
             catch((err)=>console.log(err))
-        },[])
+        },[searchValue])
         
             searchedItem.map((item)=>{
                     if(item.rating>1){
@@ -33,11 +33,11 @@ function SearchedProduct(props){
             { loading&& (<p>Loading...</p>)}
             { searchedItem.map((item)=>(
             
-            <div key={item.id} className="card w-25 m-2 rounded-0  col-lg-3" >
+            <div key={item.id} id="card" className="card w-25 h-25 m-2 rounded-0  col-lg-3" >
                  <img src={item.thumbnail} id="image" className="card-img-top  rounded-0 " style={{height:"200px"}} alt="..." />
                  <div className="card-body">
                       <h5 className="card-title">{item.title}</h5>
-                      <p className="card-text">{item.description}</p>
+                      
                      <button href="#" onClick={()=>{props.handleClick(item)}} className="btn btn-warning">Add to cart</button>
                  </div>
             </div> 
