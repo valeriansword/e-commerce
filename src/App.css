@@ -10,3 +10,21 @@
     
     
 }
+@media only screen and (min-width:502px){
+    #homeCard{
+        width:25%;
+
+    }
+}
+@media only screen and (max-width:500px){
+    #homeCard{
+            width:50%;
+            height:350px;
+            }
+    #homeCard #image{
+       
+        width:100%;
+    }
+}
+
+
