@@ -1,22 +1,16 @@
 
-
-#totalPrice{
-    
-    width: 250px;
-    height: 150px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    position: sticky;
-    top:0px;    
-    
-    
-}
 @media only screen and (min-width:502px){
     #homeCard{
         width:25%;
+        height: 320px;
 
     }
     #homeCard #image{
         height: 200px;
+    }
+    #addButton{
+        border-radius: 0%;
+        width: 100%
     }
     #cardTitle{
         font-size:15px;
@@ -53,6 +47,7 @@
     }
     #addButton{
         height: 30px;
+        border-radius: 0%;
         
     }
 }

@@ -33,9 +33,9 @@ function Checkout({cart,setCart,handleChange}){
                     {
                 cart?.map((item)=>(
                     <div key={item.id} className="col-lg-4" id="card"   >
-                 <img src={item.thumbnail} id="image" className="card-img-top  rounded-0 " style={{height:"200px"}} alt="..." />
+                 <img src={item.thumbnail} id="image" className="card-img-top  rounded-0 "  alt="..." />
                  <div className="card-body">
-                      <h5 className="card-title">{item.title}</h5>
+                      <h5 id="cardTitle" className="card-title">{item.title}</h5>
                        
                       <p className="card-text" id="price">€{item.price}</p>
                       <div className="d-flex justify-content-center">

@@ -53,7 +53,7 @@ const handleKeyDown=(event)=>{
         <i  className="bi bi-shop-window fs-4 text-warning "></i><a id="brandName" className="navbar-brand" href="#">Shopify</a>
         
       </Link> 
-      <form >
+      
 
       
       <div id="searchBar" className="input-group  ">
@@ -65,7 +65,7 @@ const handleKeyDown=(event)=>{
          <span className="input-group-text bg-warning" id="basic-addon2"><Link to={`/e-commerce/SearchedProduct/${searchValue}`}  className="text-decoration-none"><i  onClick={handleClick}  className="bi  bi-search"></i></Link></span>
         
       </div>
-      </form>
+      
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
