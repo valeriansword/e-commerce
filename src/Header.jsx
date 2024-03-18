@@ -29,13 +29,13 @@ function Header(props) {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
       <Link to="/e-commerce/" className="text-decoration-none">
-        <i  className="bi bi-shop-window fs-4 text-warning "></i><a className="navbar-brand" href="#">Shopify</a>
+        <i  className="bi bi-shop-window fs-4 text-warning "></i><a id="brandName" className="navbar-brand" href="#">Shopify</a>
         
       </Link> 
-      <div className="input-group w-75 ">
+      <div id="searchBar" className="input-group  ">
      
      
-         <input type="text" className="form-control " value={searchValue}  onChange={()=>handleChange(event)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+         <input type="text"  className="form-control " value={searchValue}  onChange={()=>handleChange(event)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
          
        
          <span className="input-group-text bg-warning" id="basic-addon2"><Link to={`/e-commerce/SearchedProduct/${searchValue}`}  className="text-decoration-none"><i  onClick={handleClick}  className="bi  bi-search"></i></Link></span>
