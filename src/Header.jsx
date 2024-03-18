@@ -20,8 +20,29 @@ function Header(props) {
     
           setSearchValue('');
     }
+    // const handleSubmit=(event)=>{
+      
+    //     if(event.key==="Enter"){
+    //       if(searchValue){
+    //         setSearchValue('');
+    //       navigate(`/SearchedProduct/${searchValue}`);
+          
+       
+    //   }
+     
+      
 
+    // }
+const handleKeyDown=(event)=>{
+  if(event.key==="Enter"){
+    setSearchValue('')
+    event.preventDefault();
+    navigate(`/e-commerce/SearchedProduct/${searchValue}`)
+    console.log(searchValue)
+  }
+  
 
+}
 
 
 
@@ -32,15 +53,19 @@ function Header(props) {
         <i  className="bi bi-shop-window fs-4 text-warning "></i><a id="brandName" className="navbar-brand" href="#">Shopify</a>
         
       </Link> 
+      <form >
+
+      
       <div id="searchBar" className="input-group  ">
      
      
-         <input type="text"  className="form-control " value={searchValue}  onChange={()=>handleChange(event)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+         <input type="text"  className="form-control " value={searchValue} onKeyDown={handleKeyDown} onChange={()=>handleChange(event)} placeholder="Search product..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
          
        
          <span className="input-group-text bg-warning" id="basic-addon2"><Link to={`/e-commerce/SearchedProduct/${searchValue}`}  className="text-decoration-none"><i  onClick={handleClick}  className="bi  bi-search"></i></Link></span>
         
       </div>
+      </form>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
